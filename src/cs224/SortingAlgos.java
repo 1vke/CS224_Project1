@@ -51,28 +51,29 @@ public class SortingAlgos {
     public void quick_sort(List<Employee> employees){
         quick_sort(employees, 0, employees.size()-1);
     }//Close quick_sort method
+
     private void quick_sort(List<Employee> employees, int lo, int hi){
-        if (lo >= hi){
-            return;
+        if (lo < hi) {
+            int pi = partition(employees, lo, hi);
+
+            quick_sort(employees, lo, pi - 1);
+            quick_sort(employees, pi + 1, hi);
         }
-        int pos=partition (employees, lo, hi);
-        quick_sort(employees, lo, pos-1);
-        quick_sort(employees, pos+1, hi);
     }//Close quick_sort sub
 
     private int partition(List<Employee>employees, int lo, int hi){
-        Employee p=employees.get(lo);
-        int j=lo+1;
-        for (int i=lo+1; i<=hi; ++i){
+        int pivot = employees.get(hi).getAge();
+        int i = lo - 1;
 
-            if (employees.get(i).getAge()< p.getAge())
-            {
-                swap( employees, i, j++  );
+        for (int j = lo; j <= hi - 1; j++) {
+            if (employees.get(j).getAge() < pivot) {
+                i++;
+                swap(employees, i, j);
             }
-        }//Close ionner loop
-        j-=1;
-        swap(employees, lo, hi);
-        return j;
+        }
+
+        swap(employees, i + 1, hi);
+        return i + 1;
     }//Close partition
 
     //(5). Method 5: merge _sort

@@ -18,24 +18,29 @@ public class Main {
 
                 switch (i) {
                     case 0:
-                        sortingAlgos.bubble_sort(employees);
                         sortingAlgo = "bubble_sort";
+                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
+                        sortingAlgos.bubble_sort(employees);
                         break;
                     case 1:
-                        sortingAlgos.insertion_sort(employees);
                         sortingAlgo = "insertion_sort";
+                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
+                        sortingAlgos.insertion_sort(employees);
                         break;
                     case 2:
-                        sortingAlgos.merge_sort(employees);
                         sortingAlgo = "merge_sort";
+                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
+                        sortingAlgos.merge_sort(employees);
                         break;
                     case 3:
-                        sortingAlgos.quick_sort(employees);
                         sortingAlgo = "quick_sort";
+                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
+                        sortingAlgos.quick_sort(employees);
                         break;
                     case 4:
-                        sortingAlgos.selection_sort(employees);
                         sortingAlgo = "selection_sort";
+                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
+                        sortingAlgos.selection_sort(employees);
                         break;
                 }
 
