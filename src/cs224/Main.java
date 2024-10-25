@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
+    static String[] sortingAlgoNames = {"bubble_sort", "insertion_sort", "merge_sort", "quick_sort", "selection_sort"};
+
     static CSVReader csvReader = new CSVReader();
     static CSVExporter csvExporter = new CSVExporter();
     static SortingAlgos sortingAlgos = new SortingAlgos();
@@ -11,37 +13,20 @@ public class Main {
     public static void getEmployeesSortExport(String csvFileName) {
         for (int i = 0; i < 5; i++) {
             try {
-                String sortingAlgo = "";
+                String sortingAlgo;
                 ArrayList<Employee> employees;
                 employees = csvReader.getEmployeesFromFile(csvFileName);
                 long startTime = System.nanoTime();
 
+                sortingAlgo = sortingAlgoNames[i];
+                System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
+
                 switch (i) {
-                    case 0:
-                        sortingAlgo = "bubble_sort";
-                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
-                        sortingAlgos.bubble_sort(employees);
-                        break;
-                    case 1:
-                        sortingAlgo = "insertion_sort";
-                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
-                        sortingAlgos.insertion_sort(employees);
-                        break;
-                    case 2:
-                        sortingAlgo = "merge_sort";
-                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
-                        sortingAlgos.merge_sort(employees);
-                        break;
-                    case 3:
-                        sortingAlgo = "quick_sort";
-                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
-                        sortingAlgos.quick_sort(employees);
-                        break;
-                    case 4:
-                        sortingAlgo = "selection_sort";
-                        System.out.printf("Sorting \"%5s\" with sorting algorithm \"%5s\"...\n", csvFileName, sortingAlgo);
-                        sortingAlgos.selection_sort(employees);
-                        break;
+                    case 0 -> sortingAlgos.bubble_sort(employees);
+                    case 1 -> sortingAlgos.insertion_sort(employees);
+                    case 2 -> sortingAlgos.merge_sort(employees);
+                    case 3 -> sortingAlgos.quick_sort(employees);
+                    case 4 -> sortingAlgos.selection_sort(employees);
                 }
 
                 long endTime = System.nanoTime();
